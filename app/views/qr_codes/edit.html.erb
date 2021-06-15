@@ -1,0 +1,13 @@
+<h1> Редактирование </h1>
+<%= form_with url: qr_code_path(@qr_code.id), method: :patch do |f| %>
+
+  <h1> Редактирование </h1>
+   <div class="col-auto">
+    <%= f.label :name, "Название ссылки:" %>
+    <%= f.text_field :name, { class: "form-control",value: @qr_code.name   } %>
+   </div>
+   <div class= "my-3" >
+      <%= f.submit  "Редактировать название ссылки", { class:"btn  btn-outline-info rounded-pill " }    %> 
+   </div>
+        
+<% end %>    

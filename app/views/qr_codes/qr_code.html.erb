@@ -1,0 +1,29 @@
+
+<h1> Список кодов </h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">QR-Код</th>
+      <th scope="col">Имя</th>
+      <th scope="col">Сканирование</th>
+      <th scope="col">Действие</th>
+    </tr>
+  </thead>
+ <tbody>
+   <% @cod.each do |result| %>
+    <tr>        
+     
+     <td> <%= image_tag(result.image)%> </td>
+     <td><%=link_to result.name, url_for(result.image) %> 
+      <td><%= result.scans %> </td>
+     <td>
+     <%= link_to "Редактировать", edit_qr_code_path(result.id), class:"btn btn-outline-success"  %>
+    
+      <%= link_to "Удалить", qr_code_path(result.id), class: 'btn btn-outline-danger', method: :delete , data: { confirm: "А Вы уверены, что хотите удалить именно этот QR код?"  } %>
+     </td>
+    </tr>
+   <% end %>
+
+  </tbody>
+  </table>
+

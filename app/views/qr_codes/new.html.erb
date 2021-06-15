@@ -1,0 +1,29 @@
+ <div  class="text-center"> 
+  <h1> Привет, друг</h1>
+  <p>Ты можешь вставить ниже ссылку на статью или видеоролик.</p> 
+  <p> Когда ты нажмешь на кнопку Сгенерировать, появится QR код, который можно будет вставить в письмо.</p>
+
+  <%= form_with url: qr_codes_path, method: :post do |f| %>
+    <div class="mb-3 d-flex justify-content-center">
+      <div class="row g-3 d-flex justify-content-center">
+  
+   <div class="col-auto">
+    <%= f.label :name, "Название ссылки:" %>
+    <%= f.text_field :name, { class: "form-control" } %>
+  <div class="col-auto">
+    <%= f.label :url, "Url ссылка:" %>
+    <%= f.text_field :url, { class: "form-control" } %>
+   <div class="mb-3 form-check">
+   <%= f.check_box :save %>
+   <%= f.label :save, "Сохранить QR код?", { class: "form-check-label" } %>
+    </div>
+   <div class= "my-3" >
+      <%= f.submit  "Сгенерировать", { class:"btn  btn-outline-info rounded-pill " }    %> 
+    </div>
+   <div>
+     <button type="reset" class="btn  btn-outline-info rounded-pill"   value="Очистить">Очистить</button>
+  </div>
+    </div>
+ <% end %>
+  </div>
+</div>
