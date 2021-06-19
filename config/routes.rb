@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  default_url_options host: "https://https://super-qrcode.herokuapp.com/"
+  default_url_options host: "https://super-qrcode.herokuapp.com/"
   root 'qr_codes#new'
   get '/contacts', to: 'pages#contact', as: :contact
   get '/qr_codes', to:  'qr_codes#qr_code', as: :qr_codes 
