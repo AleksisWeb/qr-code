@@ -1,11 +1,11 @@
 class QrCodesController < ApplicationController
  before_action :fetch_qr_code, only: [:edit, :update ,:destroy]
- before_action :authorize, only: [:qr_code, :create]
+ before_action :authorize, only: [:index, :create]
   def new 
   end
 
-  def qr_code
-     @cod = QrCode.all
+  def index
+     @cod = QrCode.all.where({user_id: current_user.id}).page(params[:page])
   end   
   def edit
   end
@@ -13,6 +13,7 @@ class QrCodesController < ApplicationController
      qr_code = QrCode.new
      qr_code.name = params[:name]
      qr_code.url = params[:url]
+     qr.code
      if qr_code.save
      redirect_to qr_codes_path, { notice: "Qr код был создан" }
      else 
@@ -21,9 +22,13 @@ class QrCodesController < ApplicationController
   end
   def update
      @qr_code.name = params[:name]
-     @qr_code.save
-     redirect_to qr_codes_path, { notice: "Qr код был изменен" }
+     if @qr_code.save
+      redirect_to qr_codes_path, { notice: "QR код был изменен" }
+    else
+      redirect_to edit_qr_code_path, { alert: "QR код не был изменен" }
+    end
   end
+
   def destroy   
     @qr_code.destroy
     redirect_to qr_codes_path, { notice: "Qr код был удален" }
