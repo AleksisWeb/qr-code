@@ -1,6 +1,6 @@
 
 <h1> Список кодов </h1>
-<%= paginate @cod %>
+<%= paginate @qr_codes %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -11,7 +11,7 @@
     </tr>
   </thead>
  <tbody>
-   <% @cod.each do |result| %>
+   <% @qr_codes.each do |result| %>
     <tr>        
      
      <td> <%= image_tag(result.image)%> </td>
@@ -27,4 +27,4 @@
 
   </tbody>
   </table>
-<%= paginate @cod %>
+<%= paginate @qr_codes %>

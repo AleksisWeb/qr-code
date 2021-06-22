@@ -44,6 +44,10 @@ class ApplicationController < ActionController::Base
   })
   end 
  end 
+ helper_method :current_user, :current_user_name
+ def current_user_name
+   current_user.name || current_user.email  
+ end
  def current_user
     @current_user = User.find_by(id: session[:user_id])
  end

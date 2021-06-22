@@ -13,7 +13,11 @@
       <div class="col-auto">
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, { class: "form-control" } %>
-      </div>      
+      </div>  
+      <div class="col-auto">
+        <%= f.label :name %>
+        <%= f.text_field :name, { class: "form-control" } %>
+      </div>    
       <div class= "my-3" >
       <%= f.submit  "Регистрация", { class:"btn  btn-outline-info rounded-pill " }    %> 
       </div>

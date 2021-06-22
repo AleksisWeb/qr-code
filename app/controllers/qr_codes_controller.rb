@@ -5,7 +5,7 @@ class QrCodesController < ApplicationController
   end
 
   def index
-     @cod = QrCode.all.where({user_id: current_user.id}).page(params[:page])
+    @qr_codes = current_user.qr_codes.page(params[:page])
   end   
   def edit
   end
@@ -15,17 +15,17 @@ class QrCodesController < ApplicationController
      qr_code.url = params[:url]
      qr_code.user_id = current_user.id
      if qr_code.save
-     redirect_to qr_codes_path, { notice: "Qr код был создан" }
+     redirect_to qr_codes_path, { notice: "#{current_user_name} QR код был создан" }
      else ;
-       redirect_to root_path, { alert: "Qr код не был создан" }
+       redirect_to root_path, { alert: "#{current_user_name} QR код не был создан" }
      end 
   end
   def update
      @qr_code.name = params[:name]
      if @qr_code.save
-      redirect_to qr_codes_path, { notice: "QR код был изменен" }
+      redirect_to qr_codes_path, { notice: "#{current_user_name} QR код был изменен" }
     else
-      redirect_to edit_qr_code_path, { alert: "QR код не был изменен" }
+      redirect_to edit_qr_code_path, { alert: "#{current_user_name} QR код не был изменен" }
     end
   end
 
