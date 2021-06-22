@@ -243,11 +243,8 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.3)
-<<<<<<< HEAD
   mimemagic (= 0.3.10)
   pg
-=======
->>>>>>> master
   pry
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
