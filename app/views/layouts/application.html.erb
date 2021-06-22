@@ -19,25 +19,26 @@
     <a class="navbar-brand"  >
        <%= image_tag("logo.png",{ width: '100px', class: 'logo-image' }) %>
     </a> 
-    <a href="#" class="nav-link" >    </a>
+   <p class = "text-centre"> <%= "Привет #{current_user_name}" if current_user %> </p>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         
         <% @menu_array.each do | menu_hash | %>
          <li class="nav-item ms-auto">
-         <a class="nav-link  <%= "active" if current_page?(menu_hash[:name_path]) %>" 
+         <a class="nav-link  <%= "active" if current_page?(menu_hash[:name_path]) %>"
          <%= link_to menu_hash[:name_menu] , 
             menu_hash[:name_path] , 
              method: menu_hash[:link_metod] %>
-         <%= menu_hash[:menu_icon]&.html_safe   %>
+         <%= menu_hash[:menu_icon]&.html_safe   %> 
          </a>
         </li>
       <% end %>                 
       </ul>
-     </div>
+     </div>     
   </div>
 </nav>
  <div class="container">
