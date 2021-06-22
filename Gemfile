@@ -5,12 +5,12 @@ ruby '2.5.1'
 gem 'pry'
 gem "rqrcode", "~> 2.0"
 gem 'bcrypt'
-gem 'mimemagic', "~> 0.3.9" 
+gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
-gem 'pg'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
