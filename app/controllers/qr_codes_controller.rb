@@ -13,10 +13,10 @@ class QrCodesController < ApplicationController
      qr_code = QrCode.new
      qr_code.name = params[:name]
      qr_code.url = params[:url]
-     qr.code
+     qr_code.user_id = current_user.id
      if qr_code.save
      redirect_to qr_codes_path, { notice: "Qr код был создан" }
-     else 
+     else ;
        redirect_to root_path, { alert: "Qr код не был создан" }
      end 
   end
