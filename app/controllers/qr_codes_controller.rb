@@ -4,8 +4,8 @@ class QrCodesController < ApplicationController
   def new 
   end
 
-  def index
-    @qr_codes = current_user.qr_codes.page(params[:page])
+  def index    
+     @qr_codes = current_user.qr_codes.page(params[:page])
   end   
   def edit
   end

@@ -5,6 +5,7 @@ ruby '2.5.1'
 gem 'pry'
 gem "rqrcode", "~> 2.0"
 gem 'bcrypt'
+gem "gmap_coordinates_picker"
 gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
