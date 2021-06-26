@@ -86,6 +86,8 @@ GEM
     ffi (1.14.2-x64-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gmap_coordinates_picker (0.1.0)
+      rails (>= 3.1.0)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
@@ -240,6 +242,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  gmap_coordinates_picker
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.3)

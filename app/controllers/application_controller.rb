@@ -48,8 +48,8 @@ class ApplicationController < ActionController::Base
  def current_user_name
    current_user.name || current_user.email  
  end
- def current_user
-    @current_user = User.find_by(id: session[:user_id])
+ def current_user    
+    @current_user ||= User.find_by(id: session[:user_id])
  end
   def authorize
     return if current_user
