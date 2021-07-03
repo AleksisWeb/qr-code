@@ -1,11 +1,12 @@
 class SessionsController < ApplicationController
+  include Autologin
   def new
   end
 
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id.to_s
+     auto_login(user)
       redirect_to qr_codes_path, notice: "Добро пожаловать"
     else 
       redirect_to new_user_path, alert: "Неверный email или пароль"
