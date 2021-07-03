@@ -20,7 +20,7 @@
      <td>
      <%= link_to "Редактировать", edit_qr_code_path(result.id), class:"btn btn-outline-success"  %>
     
-      <%= link_to "Удалить", qr_code_path(result.id), class: 'btn btn-outline-danger', method: :delete , data: { confirm: "А Вы уверены, что хотите удалить именно этот QR код?"  } %>
+      <%= link_to "Удалить", qr_code_path(result.id), class: 'btn btn-outline-danger', method: :delete , data: { confirm: "#{current_user_name} Вы уверены, что хотите удалить именно этот QR код?"  } %>
      </td>
     </tr>
    <% end %>

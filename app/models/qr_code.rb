@@ -3,10 +3,16 @@ class QrCode < ApplicationRecord
   has_one_attached :image
   validates :url, presence: true
   validates :name, presence: true
-  paginates_per 2
-  belongs_to :user
+  paginates_per 20
+  belongs_to :user, optional: true 
   def generate_qr_code
-    our_url = Rails.application.routes.url_helpers.qr_code_url(self.id)
+    our_url =
+      if self.tracking 
+        Rails.application.routes.url_helpers.qr_code_url(self.id)
+      else 
+        self.url
+      end    
+
   qrcode = RQRCode::QRCode.new(our_url)
    png = qrcode.as_png(
   bit_depth: 1,

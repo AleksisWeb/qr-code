@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   # delete '/qr_codes/:id', to: 'qr_codes#destroy'
   
   # get '/qr_codes/:id', to: 'qr_codes#show'
-  resources :qr_codes
+  resources :qr_codes do 
+    collection do 
+      get 'common_codes'
+    end  
+  end
   
   # get '/users/new' , to:  'users#new' , as: :new_user
   # post '/users' , to: 'users#create' , as: :users
