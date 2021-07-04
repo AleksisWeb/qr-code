@@ -25,7 +25,7 @@ class QrCodesController < ApplicationController
       if qr_code.save
         redirect_to qr_codes_path, { notice: "#{current_user_name} QR код был создан" }
       else
-        redirect_to root_path, { alert: "#{current_user_name} QR код не был создан" }
+        redirect_to root_path, { alert: "#{current_user_name} QR код не был создан !" }
       end
     elsif params[:tracking] == '0'           
       if qr_code.save
